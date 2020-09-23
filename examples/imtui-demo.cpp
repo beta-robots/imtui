@@ -693,7 +693,7 @@ static void ShowDemoWindowWidgets()
         if (ImGui::TreeNode("Colored Text"))
         {
             // Using shortcut. You can use PushStyleColor()/PopStyleColor() for more flexibility.
-            ImGui::TextColored(ImVec4(1.0f,0.0f,1.0f,1.0f), "Pink");
+            ImGui::TextColored(ImVec4(1.0f,0.0f,1.0f,1.0f), "Pink"); ImGui::SameLine(); HelpMarker("What the fuck is this?");
             ImGui::TextColored(ImVec4(1.0f,1.0f,0.0f,1.0f), "Yellow");
             ImGui::TextDisabled("Disabled");
             ImGui::SameLine(); HelpMarker("The TextDisabled color is stored in ImGuiStyle.");
