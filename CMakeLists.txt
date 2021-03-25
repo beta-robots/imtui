@@ -89,6 +89,21 @@ endif ()
 
 add_subdirectory(third-party)
 
+install(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/third-party/imgui/imgui/
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/include/imgui
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN "docs" EXCLUDE
+    PATTERN "examples" EXCLUDE
+    PATTERN "misc" EXCLUDE
+    PATTERN ".github" EXCLUDE
+)
+
+install(
+    FILES ${CMAKE_BINARY_DIR}/third-party/libimgui-for-imtui.a
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+)
+
 if (IMTUI_ALL_WARNINGS)
     if (CMAKE_COMPILER_IS_GNUCC OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
